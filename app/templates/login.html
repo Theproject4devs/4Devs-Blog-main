@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4DEVS | Login</title>
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+
+  </head>
+  <body>
+    <div class="login-page">
+      <img
+        src="{{ url_for('static', filename='img/vector-restingoffice.svg') }}"
+        alt="Vetor de uma moça com os pés sob a mesa do seu escritório."
+      />
+      <div id="fncSignin" class="form-signin">
+        <h1>Happy to see you, <br />welcome!</h1>
+
+        <form action="/verify_login" method="POST">
+          {% if msg %}
+          <p class="msg-error-login">{{ msg }}</p>
+          {% endif %}
+          <div class="input-wrapper">
+            <!-- <label for="name">Name</label> -->
+            <input
+              class="inpt-username"
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Username"
+            />
+            <!-- <label for="password">Password</label> -->
+            <input
+              class="inpt-pass"
+              type="password"
+              name="senha"
+              id="password"
+              placeholder="Password"
+            />
+          </div>
+
+          <div class="bttn-wrapper">
+            <button class="bttn-resetPassword" type="button">
+              Reset password
+            </button>
+          </div>
+
+          <button class="bttn-signin" type="submit">Login</button>
+        </form>
+        <div class="register-user">
+          <p>Don't have an account yet?</p>
+          <button class="bttn-register" type="button" onclick="toggleDisplaySignUp()">Register Now</button>
+        </div>
+      </div>
+
+      <div id="fncSignup" class="form-signup">
+        <h1>New here? <br> Let's get started</h1>
+
+        <form action="" method="">
+          <div class="input-wrapper">
+            <!-- <label for="name">Name</label> -->
+            <input
+            class="inpt-full-name"
+            type="text"
+            name="name"
+            id="register-fullName"
+            placeholder="Enter your Full Name"
+          />
+            <!-- <label for="name">Name</label> -->
+            <input
+              class="inpt-username"
+              type="text"
+              name="name"
+              id="register-name"
+              placeholder="Enter your Username"
+            />
+            <!-- <label for="name">Name</label> -->
+            <input
+            class="inpt-email"
+            type="text"
+            name="name"
+            id="register-email"
+            placeholder="Enter your E-mail"
+          />
+            <!-- <label for="password">Password</label> -->
+            <input
+              class="inpt-pass"
+              type="password"
+              name="senha"
+              id="register-password"
+              placeholder="Enter your Password"
+            />
+          </div>
+
+          <div class="bttns-form">
+            <button class="return-login" type="button" onclick="toggleDisplaySignIn()">Sign In</button>
+            <button class="bttn-signup" type="submit">Sign up</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+  </body>
+</html>
